@@ -1,8 +1,8 @@
 
 
 -- Load shared config 
-local config = ngx.shared.nla_config
-local whitelist = ngx.shared.nla_whitelist
+local config = ngx.shared.config
+local whitelist = ngx.shared.whitelist
 
 local VALIDATE_URI = config:get("js_validate_uri")
 
