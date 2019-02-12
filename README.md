@@ -22,7 +22,7 @@ cd /source
 ## 1. Download and install all dependencies
 
 ```
-sudo apt-get install libpcre3-dev zlib1g-dev gcc make automake
+sudo apt-get install libpcre3-dev zlib1g-dev openssl-dev gcc make automake
 ```
 
 <br>
@@ -31,6 +31,7 @@ sudo apt-get install libpcre3-dev zlib1g-dev gcc make automake
 ```
 wget https://github.com/openresty/luajit2/archive/v2.0.5.tar.gz
 tar -xvf v2.0.5.tar.gz
+cd luajit2-2.0.5/
 make PREFIX=/usr/local/lib/lua
 sudo make install
 ```
@@ -59,7 +60,10 @@ wget https://nginx.org/download/nginx-1.14.2.tar.gz
 tar -xvf nginx-1.14.2.tar.gz
 cd nginx-1.14.2/
 
-./configure --prefix=/usr/local/nginx --with-http_ssl_module --with-http_stub_status_module --with-ld-opt=-Wl,-rpath,/usr/local/lib/lua --add-module=/source/ngx_devel_kit-0.3.1rc1 --add-module=/source/lua-nginx-module-0.10.14rc3
+./configure --prefix=/usr/local/nginx --with-http_ssl_module --with-http_stub_status_module --with-ld-opt=-Wl,-rpath,/usr/local/lib/lua --add-module=/source/ngx_devel_kit-0.3.1rc1 --add-module=/source/lua-nginx-module-0.10.14rc3 --with-openssl-opt=enable-ec_nistp_64_gcc_128 --with-openssl-opt=no-nextprotoneg --with-openssl-opt=no-weak-ssl-ciphers --with-openssl-opt=no-ssl3
+
+make
+sudo make install
 ```
 
 <br>
