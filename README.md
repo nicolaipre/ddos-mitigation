@@ -22,7 +22,7 @@ cd /source
 ## 1. Download and install all dependencies
 
 ```
-sudo apt-get install libpcre3-dev zlib1g-dev openssl-dev gcc make automake
+sudo apt-get install libpcre3-dev zlib1g-dev libssl-dev gcc make automake
 ```
 
 <br>
