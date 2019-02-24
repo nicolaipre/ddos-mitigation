@@ -4,7 +4,6 @@
 local config = ngx.shared.config
 local whitelist = ngx.shared.whitelist
 
-local VALIDATE_URI = config:get("js_validate_uri")
 
 local M = {} 
 
@@ -102,7 +101,7 @@ M.challenge_html_template = [[
     var XHR = "onload"in new XMLHttpRequest ? XMLHttpRequest : XDomainRequest;
     var xhr = new XHR;
 
-    xhr.open("GET", "%s?rid=%s", true);
+    xhr.open("GET", "/___S___/?rid=%s", true);
 
     xhr.onreadystatechange = function()
     {
@@ -132,7 +131,7 @@ function M.sendChallenge(client_id)
     -- TODO: Check type of request, if page or resource etc... 
 
     -- Send the challenge
-    local challengeHTML = string.format(M.challenge_html_template, VALIDATE_URI, client_id)
+    local challengeHTML = string.format(M.challenge_html_template, client_id)
     ngx.header["Content-type"] = "text/html"
     ngx.say(challengeHTML)
 
