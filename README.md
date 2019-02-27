@@ -54,8 +54,9 @@ tar -xvf v0.10.14rc3.tar.gz
 
 <br>
 
-### Download and install the lateset stable release of [Nginx](https://nginx.org/download/nginx-1.14.2.tar.gz).
+### Update links, Download and install the lateset stable release of [Nginx](https://nginx.org/download/nginx-1.14.2.tar.gz).
 ```
+sudo ldconfig
 wget https://nginx.org/download/nginx-1.14.2.tar.gz
 tar -xvf nginx-1.14.2.tar.gz
 cd nginx-1.14.2/
